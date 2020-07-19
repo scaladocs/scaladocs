@@ -1,2 +1,7 @@
+out/
+.metals/
+.bloop/
+*.DS_Store
 *.class
 *.log
+*.swp
