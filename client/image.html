@@ -1,0 +1,60 @@
+<html>
+<head>
+  <style>
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <canvas id="canvas"></canvas>
+  </div>
+  <script>
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext('2d');
+    const width = screen.width;
+    const height = screen.height;
+    let data;
+
+    canvas.addEventListener('mousemove', function(e) {
+      redraw(e.offsetX, e.offsetY)
+    });
+
+    function redraw(x, y) {
+      const offset = (x * 4) + (y * width * 4);
+      data[offset] = 0xFF;
+      data[offset + 1] = 0xFF;
+      data[offset + 2] = 0xFF;
+      data[offset + 3] = 0xFF;
+      context.putImageData(new ImageData(data, width, height), 0, 0)
+    }
+
+
+
+    function initildraw(x, y) {
+      for (let i = 0; i < width * height * 4; i += 4) {
+        const red = i; const green = i + 1; const blue = i + 2; const alpha = i + 3; 
+        const col = Math.floor(i / (height * 4));
+        const row = (i / 4) % width;
+
+        data[red]  = 0xFF * (row / width);
+        data[green] = 0xFF * (col / height);
+        data[blue]  = 0xFF;
+        data[alpha] = 0xFF; 
+      }
+
+      context.putImageData(new ImageData(data, width, height), 0, 0)
+    }
+
+    window.onload = function() {
+      canvas.height = height;
+      canvas.width = width;
+      data = new Uint8ClampedArray(width * height * 4);
+      initildraw(0,0);
+    }
+
+  </script>
+</body>
+</html>
