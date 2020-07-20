@@ -22,13 +22,13 @@ package object either {
     )
 
     def links: List[Link] = List(
-      Link("Docs", "https://www.scala-lang.org/api/2.13.1/scala/util/Either.html")
+      Link("Official Docs for Either", "https://www.scala-lang.org/api/2.13.1/scala/util/Either.html")
     )
 
     def examples: CodeExamples = List(
       CodeExample(
         description = Some("Basic Usage: Representing Success or Failure"), 
-        tags = List(Tag("Test", "http://".some), Tag("Test 2")),
+        tags = Nil,
         snippet = Code("""
           |import scala.util.{Either, Right, Left, Random}
           |

@@ -1,14 +1,13 @@
 body {
   color: white;
   background-color: #263238;
-  font-size: 18px;
+  font-size: 16px;
   font-family: "Roboto Condensed", sans-serif;
 }
 
 a {
   color: #ddd;
-  font-weight: 300;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:hover {
@@ -16,9 +15,33 @@ a:hover {
   text-decoration: underline;
 }
 
+h3 + p, h2 + p {
+  margin-top: 0;
+}
+
 .container {
   margin: 0 auto;
   width: 960px;
+}
+
+.container > .title {
+
+}
+
+.container > .subtitle {
+  margin-top: 0;
+}
+
+/* Search Text Input */
+.text-input {
+  background-color: #37474f;
+  border: solid 1px #90a4ae;
+  clear: both;
+  color: white;
+  display: block;
+  font-size: 1.5rem;
+  padding: 1rem;
+  width: 100%;
 }
 
 .search-icon {
@@ -29,7 +52,7 @@ a:hover {
 }
 
 .icon {
-  height: 3rem;
+  height: 2rem;
 }
 
 .search {
@@ -63,65 +86,67 @@ a:hover {
 
 .logo {
   margin: 2rem auto;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
+.title {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+/* Start Generic Links Styling */
+.links .link {
+  color: #696;
+}
+
+/* Start Generic Tag Styling */
+.tags {
+  margin: 1rem 0;
+}
+
+.tags > .tag {
+  background-color: #369;
+  padding: .25rem .5rem;
+  border-radius: .25rem;
+}
+
+.tags > .tag.with-link {
+  background-color: #696;
+  text-decoration: underline;
+}
+
+.examples-section-header {
+  color: white;
+  opacity: 0.2;
+  margin-bottom: 0;
+}
+
+/* Start Styling Specific to Example Container */
 .example {
   display: flex;
   flex-direction: column;
 }
 
-.example-title {
-  font-size: 2.5rem;
-  margin: 0;
-}
-
-h3 + p {
-  margin-top: 0;
-}
-
-.example-header{
+.example .header {
   margin-bottom: 0;
 }
 
-.example-description {
-  font-weight: 100;
+.example .description {
   line-height: 1.5rem;
 }
 
-.example-tags {
-  margin: 1rem 0;
-  text-align: right;
-}
 
-.example-tags > .tag {
-  background-color: #369;
-  padding: .5rem .5rem;
-  border-radius: .5rem;
-}
 
-.example-tags > .tag.link {
-  background-color: #696;
+.example code.snippet.language-scala {
+  font-size: 0.8rem;
 }
-
-code.code-example.language-scala {
-  font-size: 0.9rem;
-}
-
-.text-input {
-  background-color: #37474f;
-  border: solid 1px #90a4ae;
-  clear: both;
-  color: white;
-  display: block;
-  font-size: 24px;
-  padding: 1rem;
-  width: 100%;
-}
-
 
 .footer {
   margin: 0 auto;
   width: 960px;
   text-align: center;
+}
+
+.footer .note {
+  color: #777;
 }

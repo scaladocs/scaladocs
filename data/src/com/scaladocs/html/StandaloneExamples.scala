@@ -18,16 +18,19 @@ object StandaloneExamples {
       s"<!-- No Links -->"
     } else {
       s"""
-      <div class="links">
+      <h2 class="bolder">Related Resources:</h2>
+      <ul class="links">
         ${list.map(_.show).mkString("\n")}
-      </div>
+      </ul>
       """
     }
   }
 
   implicit val linksShow: Show[Link] = Show.show { link => 
     s"""
-    <a href="${link.url}" target="_blank" rel="no-follow">${link.label}</a>
+    <li class="link">
+      <a href="${link.url}" target="_blank" rel="no-follow">${link.label}</a>
+    </li>
     """
   }
 
@@ -37,7 +40,7 @@ object StandaloneExamples {
       s"<!-- No Tags Specified -->"
     } else {
       s"""
-      <div class="example-tags">
+      <div class="tags">
         ${list.map(_.show).mkString("\n")}
       </div>
       """
@@ -63,12 +66,13 @@ object StandaloneExamples {
       <body>
         <div class="container">
           ${HtmlHeader}
-          <h2 class="example-title">${page.title.show}</h2>
-          <h3 class="example-fqn-title">${page.signature.show}</h3>
+          <h1 class="title">${page.title.show}</h1>
+          <h2 class="subtitle">${page.signature.show}</h2>
           ${page.tags.show}
-          <p class="example-description">
+          <p class="description">
             ${page.description.map(_.show).getOrElse("")}
           </p>
+          <h2 class="examples-section-header">Examples:</h2>
           ${page.examples.map(_.show).mkString("\n\n")}
           ${page.links.show}
         </div>
@@ -83,7 +87,7 @@ object StandaloneExamples {
       s"<!-- No Versions Specified -->"
     } else {
       s"""
-      <div class="example-versions">
+      <div class="versions">
         ${list.map(_.show).mkString("\n")}
       </div>
       """
@@ -101,7 +105,7 @@ object StandaloneExamples {
       s"<!-- No Contributors Defined -->"
     } else {
       s"""
-      <div class="example-contributors">
+      <div class="contributors">
         ${list.map(_.show).mkString("\n")}
       </div>
       """
@@ -128,7 +132,7 @@ object StandaloneExamples {
   implicit val codeShow: Show[Code] = Show.show { code => 
     s"""
     |<div data-scalafiddle data-theme="dark">
-    |  <pre><code class="code-example language-scala">
+    |  <pre><code class="snippet language-scala">
     |${code.value}
     |  </code></pre>
     |</div>
@@ -138,7 +142,7 @@ object StandaloneExamples {
   implicit val exampleShow: Show[CodeExample] = Show.show { example => 
     s"""
     <div class="example">
-      <h3 class="example-header">${example.description.map(_.show).getOrElse("")}</h3>
+      <h3 class="header">${example.description.map(_.show).getOrElse("")}</h3>
       ${example.tags.show}
       ${example.versions.show}
       ${example.snippet.show}
@@ -146,6 +150,4 @@ object StandaloneExamples {
     </div>
     """
   }
-
-
 }

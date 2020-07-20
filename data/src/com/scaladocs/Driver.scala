@@ -34,6 +34,12 @@ object Driver extends App {
         io.copy(source, destination)
       })
   }
+  
+  val jsonIndex = locally[String] {
+    import html.JsonIndex._
+    Logger.info(s"Creating Index for ${exports.size} Pages")
+    exports.show
+  }
 
   // Export the standalone Examples:
   locally[Unit] { 
@@ -42,7 +48,7 @@ object Driver extends App {
     val outputPathPrefix = root.resolve("dest/examples/")
     exports.foreach { page => 
       val pageDestination = outputPathPrefix.resolve(page.canonicalPath)
-      io.putContents(pageDestination, page.show)
+      io.putContents(pageDestination, page.show.replace("$JSON_INDEX", jsonIndex))
     }
   }
 }
