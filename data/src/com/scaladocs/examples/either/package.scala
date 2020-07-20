@@ -5,6 +5,8 @@ import cats.implicits._
 
 package object either {
   def getPage: Page = new Page {
+    def canonicalPath = "scala/util/Either.html"
+
     val title = "Either"
 
     def signature= FQSignature("scala.util.Either[+A, +B]")
@@ -26,23 +28,25 @@ package object either {
     def examples: CodeExamples = List(
       CodeExample(
         description = Some("Basic Usage: Representing Success or Failure"), 
-        tags = List(Tag("Abc", "http://".some)),
+        tags = List(Tag("Test", "http://".some), Tag("Test 2")),
         snippet = Code("""
-          |import scala.util.{Either, Right, Left}
+          |import scala.util.{Either, Right, Left, Random}
           |
           |object DiceGame {
-          |  private winRate = 0.5
-          |  private prizeAmount = 100
-          |  private rng = new Random()
+          |  private val winRate = 0.5
+          |  private val prizeAmount = 100
+          |  private val rng = new Random()
           |
           |  def roll: Either[String, Long] = {
-          |    if (rng.nextFloat() < winRate) {
+          |    if (rng.nextFloat() <= winRate) {
           |      Right(100) // Winner 
           |    } else {
           |      Left("Sorry. Better Luck Next Time") // Loser
           |    }
           |  }
           |}
+          |
+          |(1 to 5).map(_ => DiceGame.roll).foreach(println)
           """.stripMargin.trim
         )
       )

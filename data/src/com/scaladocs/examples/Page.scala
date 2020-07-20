@@ -1,9 +1,7 @@
 package com.scaladocs.examples
 
-import cats._ 
-import cats.implicits._ 
-
 trait Page {
+  def canonicalPath: String
   def title: String 
   def signature: FQSignature
   def description: Option[String]
