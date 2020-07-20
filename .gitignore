@@ -1,4 +1,5 @@
 out/
+dest/
 .metals/
 .bloop/
 *.DS_Store
