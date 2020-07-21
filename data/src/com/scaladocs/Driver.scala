@@ -24,9 +24,14 @@ object Driver extends App {
     Files
       .walk(htmlRescourcesPath)
       .filter({ f => 
-        val notHTML = !f.getFileName().toString.endsWith(".html") 
+        val fileName = f.getFileName.toString
+
+        val isIndex  = fileName.endsWith("index.html")
+        val notHTML = !fileName.endsWith(".html") 
+        val notSearchIndex = !fileName.endsWith("search-index.js")
         val notRootDirectory = f.compareTo(htmlRescourcesPath) != 0
-        notHTML && notRootDirectory
+
+        isIndex || (notHTML && notSearchIndex && notRootDirectory)
       })
       .forEach(source => {
         val fileName = source.getFileName
@@ -35,24 +40,26 @@ object Driver extends App {
       })
   }
   
-  val jsonIndex = locally[String] {
+  // Export the index of examples:
+  locally[Unit] {
     import html.JsonIndex._
     Logger.info(s"Creating Index for ${exports.size} Pages")
-    exports.show
+    val destination = root.resolve("dest/search-index.js")
+    io.putContents(destination, s"const configuration = ${exports.show}")
   }
 
-  // Export the standalone Examples:
+  // Export the standalone examples:
   locally[Unit] { 
     import html.StandaloneExamples._
     Logger.info(s"Starting export for all pages. Exporting ${exports.size} Pages")
     val outputPathPrefix = root.resolve("dest/examples/")
     exports.foreach { page => 
       val pageDestination = outputPathPrefix.resolve(page.canonicalPath)
-      io.putContents(pageDestination, page.show.replace("$JSON_INDEX", jsonIndex))
+      io.putContents(pageDestination, page.show)
 
       page.children.foreach { child => 
         val childPageDestination = outputPathPrefix.resolve(child.canonicalPath)
-        io.putContents(childPageDestination, child.show.replace("$JSON_INDEX", jsonIndex))
+        io.putContents(childPageDestination, child.show)
       }
     }
   }
