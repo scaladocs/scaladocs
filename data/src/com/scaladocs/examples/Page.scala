@@ -8,4 +8,5 @@ trait Page {
   def tags: Tags
   def links: Links
   def examples: CodeExamples
+  def children: Pages
 }

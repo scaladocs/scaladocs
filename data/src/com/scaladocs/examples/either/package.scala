@@ -25,6 +25,10 @@ package object either {
       Link("Official Docs for Either", "https://www.scala-lang.org/api/2.13.1/scala/util/Either.html")
     )
 
+    def children: Pages = List(
+      LeftExamples.getPage
+    )
+
     def examples: CodeExamples = List(
       CodeExample(
         description = Some("Basic Usage: Representing Success or Failure"), 

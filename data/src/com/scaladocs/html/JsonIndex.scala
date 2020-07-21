@@ -21,7 +21,8 @@ object JsonIndex {
     {
       title: "${className}",
       package: "${packagePrefix}",
-      url: "/examples/${page.canonicalPath.show}"
+      url: "/examples/${page.canonicalPath.show}",
+      children: ${page.children.show}
     }
     """ 
   }

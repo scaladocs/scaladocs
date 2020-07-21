@@ -49,6 +49,11 @@ object Driver extends App {
     exports.foreach { page => 
       val pageDestination = outputPathPrefix.resolve(page.canonicalPath)
       io.putContents(pageDestination, page.show.replace("$JSON_INDEX", jsonIndex))
+
+      page.children.foreach { child => 
+        val childPageDestination = outputPathPrefix.resolve(child.canonicalPath)
+        io.putContents(childPageDestination, child.show.replace("$JSON_INDEX", jsonIndex))
+      }
     }
   }
 }
