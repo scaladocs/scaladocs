@@ -26,7 +26,8 @@ package object either {
     )
 
     def children: Pages = List(
-      LeftExamples.getPage
+      LeftExamples.getPage,
+      RightExamples.getPage
     )
 
     def examples: CodeExamples = List(

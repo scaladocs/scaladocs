@@ -28,12 +28,18 @@ object LeftExamples {
 
     def examples: CodeExamples =  List(
       CodeExample(
-        description = "Constructing a left value".some,
+        description = "Constructing a Left value".some,
         tags = Nil,
         snippet = Code("""
           |import scala.util.{Either, Left}
           |
-          |println(Left[Int]())
+          |val resultA: Either[Int, Nothing] = Left(100) 
+          |val resultB: Either[String, Nothing] = Left("Some Failure!") 
+          |val resultC: Either[Double, Nothing] = Left(100.000001) 
+          |
+          |println(resultA)
+          |println(resultB)
+          |println(resultC)
           """.stripMargin.trim
         )
       )
