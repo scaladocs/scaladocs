@@ -27,9 +27,10 @@ object StandaloneExamples {
   }
 
   implicit val linksShow: Show[Link] = Show.show { link => 
+    val target = if (link.external) "target=\"_blank\"" else ""
     s"""
     <li class="link">
-      <a href="${link.url}" target="_blank" rel="no-follow">${link.label}</a>
+      <a href="${link.url}" ${target} rel="no-follow">${link.label}</a>
     </li>
     """
   }
@@ -60,6 +61,10 @@ object StandaloneExamples {
   }
 
   implicit val showInstance: Show[Page] = Show.show { page => 
+    val relatedPages: List[Link] = page.children.map { child => 
+      Link(child.signature.value, "/examples/" + child.canonicalPath, external = false)
+    }
+
     s"""
     <html>
       ${HtmlHead.replace("$PAGE_TITLE", page.title)}
@@ -74,6 +79,7 @@ object StandaloneExamples {
           </p>
           <h2 class="examples-section-header">Examples:</h2>
           ${page.examples.map(_.show).mkString("\n\n")}
+          ${relatedPages.show}
           ${page.links.show}
         </div>
         ${HtmlFooter}

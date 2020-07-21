@@ -11,7 +11,7 @@ object NoneExamples {
 
     def title: String = "None"
 
-    def signature: FQSignature = FQSignature("scala.util.None")
+    def signature: FQSignature = FQSignature("scala.None")
 
 
     def description: Option[String] = """
