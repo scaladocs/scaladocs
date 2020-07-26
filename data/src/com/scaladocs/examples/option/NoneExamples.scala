@@ -27,7 +27,8 @@ object NoneExamples {
 
     def examples: CodeExamples =  List(
       CodeExample(
-        description = "Constructing a None value".some,
+        title = "Constructing a None value",
+        description = none,
         tags = Nil,
         snippet = Code("""
           |val resultA: Option[Int] = None // A would be Int

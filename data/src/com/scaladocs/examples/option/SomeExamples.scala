@@ -26,7 +26,8 @@ object SomeExamples {
 
     def examples: CodeExamples =  List(
       CodeExample(
-        description = "Constructing a Some value".some,
+        title = "Constructing a Some value",
+        description = none,
         tags = Nil,
         snippet = Code("""
           |val resultA: Option[Int] = Some(100) 

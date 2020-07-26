@@ -148,7 +148,10 @@ object StandaloneExamples {
   implicit val exampleShow: Show[CodeExample] = Show.show { example => 
     s"""
     <div class="example">
-      <h3 class="header">${example.description.map(_.show).getOrElse("")}</h3>
+      <h3 class="header">${example.title.show}</h3>
+      ${example.description.map { description =>
+        "<p>" + description.show +"</p>"
+      }.getOrElse("")}
       ${example.tags.show}
       ${example.versions.show}
       ${example.snippet.show}

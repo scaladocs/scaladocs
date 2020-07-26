@@ -31,7 +31,8 @@ package object option {
 
     def examples: CodeExamples = List(
       CodeExample(
-        description = Some("Representing Nullable Operation"), 
+        title = "Representing Nullable Operation", 
+        description = none,
         tags = Nil,
         snippet = Code("""
           |import scala.util.{Random}

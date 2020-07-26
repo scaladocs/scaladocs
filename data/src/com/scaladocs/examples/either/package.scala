@@ -32,7 +32,8 @@ package object either {
 
     def examples: CodeExamples = List(
       CodeExample(
-        description = Some("Basic Usage: Representing Success or Failure"), 
+        title = "Basic Usage: Representing Success or Failure", 
+        description = none,
         tags = Nil,
         snippet = Code("""
           |import scala.util.{Either, Right, Left, Random}

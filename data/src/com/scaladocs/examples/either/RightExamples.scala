@@ -28,7 +28,8 @@ object RightExamples {
 
     def examples: CodeExamples =  List(
       CodeExample(
-        description = "Constructing a Right value".some,
+        title = "Constructing a Right value",
+        description = none,
         tags = Nil,
         snippet = Code("""
           |import scala.util.{Either, Right}

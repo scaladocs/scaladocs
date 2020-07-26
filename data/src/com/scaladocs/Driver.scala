@@ -14,7 +14,8 @@ object Driver extends App {
   // Add examples to this list to generate pages.
   val exports = List(
     examples.either.getPage,
-    examples.option.getPage
+    examples.option.getPage,
+    examples.function.getPage
   )
 
   // Copy files required by the templates:
