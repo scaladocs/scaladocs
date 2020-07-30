@@ -21,7 +21,8 @@ package object option {
     )
 
     def links: List[Link] = List(
-      Link("Official Docs for Option", "https://www.scala-lang.org/api/2.13.1/scala/Option.html")
+      Link("Scala Docs for Option", "https://www.scala-lang.org/api/current/scala/Option.html"),
+      Link("Source Code for Option", "https://github.com/scala/scala/blob/2.13.x/src/library/scala/Option.scala")
     )
 
     def children: Pages = List(

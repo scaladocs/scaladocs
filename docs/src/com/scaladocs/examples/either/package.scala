@@ -22,7 +22,8 @@ package object either {
     )
 
     def links: List[Link] = List(
-      Link("Official Docs for Either", "https://www.scala-lang.org/api/2.13.1/scala/util/Either.html")
+      Link("Scala Docs for Either", "https://www.scala-lang.org/api/current/scala/util/Either.html"),
+      Link("Source Code for Either", "https://github.com/scala/scala/blob/2.13.x/src/library/scala/util/Either.scala")
     )
 
     def children: Pages = List(

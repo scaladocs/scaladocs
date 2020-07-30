@@ -20,7 +20,8 @@ package object function {
     )
 
     def links: List[Link] = List(
-      Link("Official Docs for Function", "https://www.scala-lang.org/api/2.13.1/scala/Function$.html")
+      Link("Scala Docs for Function", "https://www.scala-lang.org/api/current/scala/Function$.html"),
+      Link("Source Code for Function", "https://github.com/scala/scala/blob/2.13.x/src/library/scala/Function.scala")
     )
 
     def examples: CodeExamples = List(
