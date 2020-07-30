@@ -13,9 +13,8 @@ approachable to all members of the community through simple examples.
 2. Clone this repository onto your development environment.
 3. Run the `docs` project and `http` server projects.
     - Terminal A: `mill --watch docs.run` (Code changes will automatically regenerate content)
-    - Terminal B: `mill -i http.run` (Code changes require a server restart.)
+    - Terminal B: `mill --watch http.runBackground` (Code changes restart server automatically)
 4. Visit: [`http://localhost:8000`][localhost] in your favorite browser.
-
 
 ## License
 
