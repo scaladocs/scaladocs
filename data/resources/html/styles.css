@@ -138,17 +138,20 @@ h3 + p, h2 + p {
 }
 
 
-
 .example code.snippet.language-scala {
   font-size: 0.8rem;
 }
 
 .footer {
   margin: 0 auto;
+  text-align: right;
   width: 960px;
-  text-align: center;
 }
 
-.footer .note {
+.footer .note,
+.footer .license,
+.footer .source-code {
   color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
 }
