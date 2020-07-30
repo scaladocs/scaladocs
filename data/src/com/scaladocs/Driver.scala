@@ -20,7 +20,7 @@ object Driver extends App {
 
   // Copy files required by the templates:
   locally[Unit] {
-    val destinationClientPath = root.resolve("dest/")
+    val destinationClientPath = root.resolve("build/")
     val htmlRescourcesPath = root.resolve("data/resources/html/")
 
     Files
@@ -46,7 +46,7 @@ object Driver extends App {
   locally[Unit] {
     import html.JsonIndex._
     Logger.info(s"Creating Index for ${exports.size} Pages")
-    val destination = root.resolve("dest/search-index.js")
+    val destination = root.resolve("build/search-index.js")
     io.putContents(destination, s"const configuration = ${exports.show}")
   }
 
@@ -54,7 +54,7 @@ object Driver extends App {
   locally[Unit] { 
     import html.StandaloneExamples._
     Logger.info(s"Starting export for all pages. Exporting ${exports.size} Pages")
-    val outputPathPrefix = root.resolve("dest/examples/")
+    val outputPathPrefix = root.resolve("build/examples/")
     exports.foreach { page => 
       val pageDestination = outputPathPrefix.resolve(page.canonicalPath)
       io.putContents(pageDestination, page.show)
