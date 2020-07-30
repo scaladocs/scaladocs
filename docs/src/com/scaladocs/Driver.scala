@@ -21,7 +21,7 @@ object Driver extends App {
   // Copy files required by the templates:
   locally[Unit] {
     val destinationClientPath = root.resolve("build/")
-    val htmlRescourcesPath = root.resolve("data/resources/html/")
+    val htmlRescourcesPath = root.resolve("docs/resources/html/")
 
     Files
       .walk(htmlRescourcesPath)
