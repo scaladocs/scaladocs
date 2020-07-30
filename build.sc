@@ -7,3 +7,7 @@ object docs extends ScalaModule {
     ivy"org.typelevel::cats-effect:2.1.4"
   )
 }
+
+object http extends ScalaModule {
+  def scalaVersion = "2.13.1"
+}
