@@ -11,6 +11,10 @@ object SomeExamples {
 
     def title: String = "Some[+A]"
 
+    def metaDescription: String = """
+    | Simple usage examples for Scala's Some type. How to construct a Some type.
+    """.stripMargin.trim
+
     def signature: FQSignature = FQSignature("scala.Some[+A]")
 
     def description: Option[String] =

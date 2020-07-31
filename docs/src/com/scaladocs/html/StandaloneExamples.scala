@@ -64,9 +64,13 @@ object StandaloneExamples {
       Link(child.signature.value, "/examples/" + child.canonicalPath, external = false)
     }
 
+    val htmlHead = HtmlHead
+      .replace("$PAGE_TITLE", page.title)
+      .replace("$PAGE_META_DESCRIPTION", page.metaDescription)
+
     s"""
     <html>
-      ${HtmlHead.replace("$PAGE_TITLE", page.title)}
+      ${htmlHead}
       <body>
         <div class="container">
           ${HtmlHeader}

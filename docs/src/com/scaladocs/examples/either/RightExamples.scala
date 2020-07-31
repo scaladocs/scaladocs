@@ -11,6 +11,10 @@ object RightExamples {
 
     def title: String = "Right[+B]"
 
+    def metaDescription: String = """
+    | Simple usage examples for Scala's Right type. How to construct a Right type.
+    """.stripMargin.trim
+
     def signature: FQSignature = FQSignature("scala.util.Right[+B]")
 
     def description: Option[String] = """

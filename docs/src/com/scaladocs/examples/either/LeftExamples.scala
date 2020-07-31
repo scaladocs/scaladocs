@@ -11,6 +11,10 @@ object LeftExamples {
 
     def title: String = "Left[+A]"
 
+    def metaDescription: String = """
+    | Simple usage examples for Scala's Left type. How to construct a Left type.
+    """.stripMargin.trim
+
     def signature: FQSignature = FQSignature("scala.util.Left[+A]")
 
     def description: Option[String] = """

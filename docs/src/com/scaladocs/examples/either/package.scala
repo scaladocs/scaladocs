@@ -7,7 +7,11 @@ package object either {
   def getPage: Page = new Page {
     def canonicalPath = "scala/util/Either.html"
 
-    val title = "Either"
+    def title = "Either"
+
+    def metaDescription: String = """
+    | Simple usage examples for Scala's Either type. How to construct an Either type.
+    """.stripMargin.trim
 
     def signature = FQSignature("scala.util.Either[+A, +B]")
 

@@ -7,7 +7,11 @@ package object option {
   def getPage: Page = new Page {
     def canonicalPath = "scala/Option.html"
 
-    val title = "Option"
+    def title = "Option"
+
+    def metaDescription: String = """
+    | Simple usage examples for Scala's Option type. How to construct an Option type.
+    """.stripMargin.trim
 
     def signature = FQSignature("scala.Option[+A]")
 

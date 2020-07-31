@@ -9,6 +9,10 @@ package object function {
 
     def title: String = "Function"
 
+    def metaDescription: String = """
+    |Simple usage examles for Scala's Function Type. Compose, andThen, chain and more.
+    """.stripMargin.trim
+
     def signature: FQSignature = FQSignature("scala.Function")
 
     def description: Option[String] = """

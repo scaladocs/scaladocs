@@ -5,18 +5,29 @@ import cats.implicits._
 
 package object list {
   def getPage: Page = new Page {
-
     def canonicalPath = "scala/collection/immutable/List.html"
+
     def title = "List"
+
+    def metaDescription: String = """
+    |Self Contained Usage Examples for Scala's List Collection. 
+    |Including map, flatMap, filter, fold, and many more.
+    """.stripMargin.trim
+
     def signature = FQSignature("scala.collection.immutable.List[+A]")
+
     def description: Option[String] = """An immutable linked list of elements of type A.""".stripMargin.trim.some
+
     def tags: List[Tag] = List()
+
     def links: List[Link] =
       List(
         Link("Scala Docs for List", "https://www.scala-lang.org/api/current/scala/collection/immutable/List.html"),
         Link("Source Code for List", "https://github.com/scala/scala/blob/2.13.x/src/library/scala/collection/immutable/List.scala")
       )
+
     def children: Pages = Nil
+
     def examples: CodeExamples =
       List(
         CodeExample(

@@ -11,6 +11,10 @@ object NoneExamples {
 
     def title: String = "None"
 
+    def metaDescription: String = """
+    | Simple usage examples for Scala's None type. How to construct a None type.
+    """.stripMargin.trim
+
     def signature: FQSignature = FQSignature("scala.None")
 
     def description: Option[String] = """
