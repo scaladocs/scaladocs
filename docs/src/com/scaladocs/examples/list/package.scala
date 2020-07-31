@@ -434,7 +434,13 @@ package object list {
           title = "flatten",
           description = "Remove one level of nesting from the given nested list.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val listOfLists = List(List(1,2,3), List(10, 20, 30), List(100, 200, 300))
+            |val flattened = listOfLists.flatten
+            |println(flattened)
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "fold",
