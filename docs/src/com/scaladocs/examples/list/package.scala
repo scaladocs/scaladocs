@@ -23,13 +23,17 @@ package object list {
           title = "List.apply",
           description = "Building a list using the comanion object's apply".some,
           tags = List(Tag("Comanion Object")),
-          snippet = Code("""""".stripMargin.trim)
-        ),
-        CodeExample(
-          title = "List.apply",
-          description = "Building a list using the comanion object's apply".some,
-          tags = List(Tag("Comanion Object")),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |// List of Ints:
+            |val myIntList = List[Int](1, 2, 3, 4, 5, 6)
+            |println(myIntList)
+            |
+            |// List of Strings: 
+            |val myStringList = List[String]("First", "Second", "Third", "Fourth")
+            |println(myStringList)
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "List.fill",
