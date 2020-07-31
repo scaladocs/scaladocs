@@ -145,9 +145,18 @@ package object list {
         ),
         CodeExample(
           title = "concat, ++",
-          description = "Concatenate a list ".some,
+          description = "Concatenate two lists into a new list.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val listA = List(1, 2, 3)
+            |val listB = List(50, 60, 70)
+            |val result = listA ++ listB
+            |println(s"listA: ${listA}") // Original list unmodified
+            |println(s"listB: ${listB}") // Original list unmodified
+            |println(s"result: ${result}") // New list with elements from both original lists
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "prependAll, ++:, :::",
