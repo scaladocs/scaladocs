@@ -21,8 +21,8 @@ package object list {
       List(
         CodeExample(
           title = "List.apply",
-          description = "Building a list using the comanion object's apply".some,
-          tags = List(Tag("Comanion Object")),
+          description = "Building a list using the companion object's apply".some,
+          tags = List(Tag("Companion Object")),
           snippet = Code(
             """
             |// List of Ints:
@@ -38,7 +38,7 @@ package object list {
         CodeExample(
           title = "List.fill",
           description = "Build a list that is filled with the provided element.".some,
-          tags = List(Tag("Comanion Object")),
+          tags = List(Tag("Companion Object")),
           snippet = Code(
             """
             |val magicNumber: Int = 42
@@ -66,7 +66,7 @@ package object list {
         CodeExample(
           title = "List.from",
           description = "Build a list from another collection.".some,
-          tags = List(Tag("Comanion Object"), Tag("2.13.x")),
+          tags = List(Tag("Companion Object"), Tag("2.13.x")),
           snippet = Code(
             """
             |// Available starting with: 2.13.x
@@ -78,7 +78,7 @@ package object list {
         CodeExample(
           title = "List.range",
           description = "Create a list with the given range.".some,
-          tags = List(Tag("Comanion Object")),
+          tags = List(Tag("Companion Object")),
           snippet = Code(
             """
             |val rangeA: List[Int] = List.range(1, 10)
@@ -92,7 +92,7 @@ package object list {
         CodeExample(
           title = "List.tabulate",
           description = "Create a list containing the values produced by a given function.".some,
-          tags = List(Tag("Comanion Object")),
+          tags = List(Tag("Companion Object")),
           snippet = Code(
             """
             |println("\nTabulate the position of each element:")
@@ -115,7 +115,7 @@ package object list {
         CodeExample(
           title = "List.unfold",
           description = "Create a list of values relative to some state.".some,
-          tags = List(Tag("Comanion Object"), Tag("2.13.x")),
+          tags = List(Tag("Companion Object"), Tag("2.13.x")),
           snippet = Code(
             """
             |// List.unfold is only available starting with Scala 2.13.x
@@ -132,7 +132,7 @@ package object list {
         CodeExample(
           title = "List.iterate",
           description = "Create a list of values resulting by repeated invocations of the function on a value.".some,
-          tags = List(Tag("Comanion Object")),
+          tags = List(Tag("Companion Object")),
           snippet = Code(
             """
             |def doublePrevious(value: Int) = value * 2
