@@ -268,7 +268,16 @@ package object list {
           title = "contains",
           description = "Tests if the given element is within the list.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val numbers = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) 
+            |val hasTen = numbers.contains(10)
+            |println(s"hasTen: ${hasTen}")
+            |
+            |val hasOneHundred = numbers.contains(100)
+            |println(s"hasOneHundred: ${hasOneHundred}")
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "corresponds",
