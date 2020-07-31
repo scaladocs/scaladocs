@@ -557,8 +557,15 @@ package object list {
           title = "tapEach",
           description =
             "Applies a function to each element of the list, returning the input list. This is used for it's side-effects.".some,
-          tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          tags = List(Tag("2.13.x")),
+          snippet = Code(
+            """
+            |val list = List(1, 2, 3, 4, 5).tapEach { value => 
+            |  println(s"Side-effect... ${value}")
+            |}
+            |println(list)
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "zip",
