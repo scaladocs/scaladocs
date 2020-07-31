@@ -193,8 +193,20 @@ package object list {
         CodeExample(
           title = "appendAll, :++",
           description = "Adds all elements of the list to the end of another list.".some,
-          tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          tags = List(Tag("2.13.x")),
+          snippet = Code(
+            """
+            |val collectionA = Vector(1, 2, 3)
+            |val listB = List(50, 60, 70)
+            |val resultA: List[Int] = listB  :++ collectionA  // Append values of collection into list.
+            |val resultB: Vector[Int] = collectionA :++ listB // Append values of list into collection.
+            |
+            |println(s"collectionA: ${collectionA}") // Original vector unmodified
+            |println(s"listB: ${listB}") // Original list unmodified
+            |println(s"resultA: ${resultA}") // List
+            |println(s"resultB: ${resultB}") // Vector
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "append, :+",
