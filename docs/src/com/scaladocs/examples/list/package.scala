@@ -39,7 +39,29 @@ package object list {
           title = "List.fill",
           description = "Build a list that is filled with the provided element.".some,
           tags = List(Tag("Comanion Object")),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val magicNumber: Int = 42
+            |
+            |println("\nOne Dimension Filled List:")
+            |val tenMagicNumbers: List[Int] = List.fill(10)(magicNumber)
+            |println(s"List has ${tenMagicNumbers.size} elements.")
+            |println(tenMagicNumbers)
+            |
+            |println("\nTwo Dimension Filled List:")
+            |val dimension1 = 2
+            |val dimension2 = 3
+            |val twoDimensionList: List[List[Int]] = List.fill(dimension1, dimension2)(magicNumber)
+            |println(twoDimensionList)
+            |
+            |println("\nThree Dimension Filled List:")
+            |val dimension3 = 1
+            |val threeDimensionList: List[List[List[Int]]] = List.fill(dimension1, dimension2, dimension3)(magicNumber)
+            |println(threeDimensionList)
+            |
+            |// Fill is defined for up to 5 parameters (dimensions).
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "List.from",
