@@ -349,7 +349,16 @@ package object list {
           title = "filter",
           description = "Create a list of all items matching the predicate.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val list = List(1, 2, 3, 4, 5, 6, 7, 8, 9)
+            |val smallNumers = list.filter(_ < 5)
+            |println(s"Small Numbers: ${smallNumers}")
+            |
+            |val largeNumers = list.filter(_ > 5)
+            |println(s"Large Numbers: ${largeNumers}")
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "find, findLast",
