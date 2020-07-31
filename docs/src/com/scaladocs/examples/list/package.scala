@@ -461,7 +461,25 @@ package object list {
           description =
             "Accumulate the result of applying a binary operation on all elements of the list, going from left to right.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val list = List(5, 4, 3, 2, 1)
+            |
+            |// Accumualte values into a new list by prepending value from left to right.
+            |val resultA = list.foldLeft(Nil: List[Int]){ (accumulator, nextValue) =>
+            | nextValue :: accumulator
+            |}
+            |println(s"Accumulate into new list: ${resultA}")
+            |
+            |// Accumualte values into a CSV
+            |// Note: equivalent to `list.mkString(", ")`
+            |val resultB = list.foldLeft(""){ (accumulator, nextValue) =>
+            |  if (accumulator == "") s"${nextValue}"
+            |  else s"${accumulator}, ${nextValue}"
+            |}
+            |println(s"Accumulate into a string: ${resultB}")
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "foldRight",
