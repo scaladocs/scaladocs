@@ -180,7 +180,15 @@ package object list {
           title = "pepend, +:, ::",
           description = "Adds an element to the start of the list.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val list = List("b", "c")
+            |val updatedListA = "a" +: list
+            |val updatedListB = "a" :: list
+            |println(updatedListA)
+            |println(updatedListB)
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "appendAll, :++",
