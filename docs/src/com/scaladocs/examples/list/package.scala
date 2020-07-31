@@ -66,8 +66,14 @@ package object list {
         CodeExample(
           title = "List.from",
           description = "Build a list from another collection.".some,
-          tags = List(Tag("Comanion Object")),
-          snippet = Code("""""".stripMargin.trim)
+          tags = List(Tag("Comanion Object"), Tag("2.13.x")),
+          snippet = Code(
+            """
+            |// Available starting with: 2.13.x
+            |val myList: List[String] = List.from(Array("a", "b", "c"))
+            |println(myList)
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "List.range",
