@@ -1,7 +1,7 @@
 package com.scaladocs.html
 
-import cats._ 
-import cats.implicits._ 
+import cats._
+import cats.implicits._
 
 import com.scaladocs.examples._
 import com.scaladocs.io
@@ -11,9 +11,9 @@ object StandaloneExamples {
   lazy val HtmlHeader = io.getContents("html/header.html")
   lazy val HtmlFooter = io.getContents("html/footer.html")
 
-  implicit val fqSignatureShow: Show[FQSignature] = Show.show(_.value) 
+  implicit val fqSignatureShow: Show[FQSignature] = Show.show(_.value)
 
-  implicit val listLinkShow: Show[List[Link]] = Show.show { list => 
+  implicit val listLinkShow: Show[List[Link]] = Show.show { list =>
     if (list.isEmpty) {
       s"<!-- No Links -->"
     } else {
@@ -26,7 +26,7 @@ object StandaloneExamples {
     }
   }
 
-  implicit val linksShow: Show[Link] = Show.show { link => 
+  implicit val linksShow: Show[Link] = Show.show { link =>
     val target = if (link.external) "target=\"_blank\"" else ""
     s"""
     <li class="link">
@@ -35,8 +35,7 @@ object StandaloneExamples {
     """
   }
 
-
-  implicit val listTag: Show[List[Tag]] = Show.show { list => 
+  implicit val listTag: Show[List[Tag]] = Show.show { list =>
     if (list.isEmpty) {
       s"<!-- No Tags Specified -->"
     } else {
@@ -46,22 +45,22 @@ object StandaloneExamples {
       </div>
       """
     }
-  } 
+  }
 
-  implicit val tagShow: Show[Tag] = Show.show { 
-    case Tag(label, None) => 
+  implicit val tagShow: Show[Tag] = Show.show {
+    case Tag(label, None) =>
       s"""
       <span class="tag">${label}</span>
       """
 
-    case Tag(label, Some(url)) => 
+    case Tag(label, Some(url)) =>
       s"""
       <span class="tag with-link"><a href="${url}">${label}</a></span>
       """
   }
 
-  implicit val showInstance: Show[Page] = Show.show { page => 
-    val relatedPages: List[Link] = page.children.map { child => 
+  implicit val showInstance: Show[Page] = Show.show { page =>
+    val relatedPages: List[Link] = page.children.map { child =>
       Link(child.signature.value, "/examples/" + child.canonicalPath, external = false)
     }
 
@@ -85,10 +84,10 @@ object StandaloneExamples {
         ${HtmlFooter}
       </body>
     </html>
-    """ 
+    """
   }
 
-  implicit val listVersionNumber: Show[List[VersionNumber]] = Show.show { list => 
+  implicit val listVersionNumber: Show[List[VersionNumber]] = Show.show { list =>
     if (list.isEmpty) {
       s"<!-- No Versions Specified -->"
     } else {
@@ -118,7 +117,7 @@ object StandaloneExamples {
     }
   }
 
-  implicit val contributorShow: Show[Contributor] = Show.show { 
+  implicit val contributorShow: Show[Contributor] = Show.show {
     case Contributor(label, Some(url)) =>
       s"""
       <span class="contributor">
@@ -127,15 +126,15 @@ object StandaloneExamples {
         </a>
       </span>
       """
-    case Contributor(label, None) => 
+    case Contributor(label, None) =>
       s"""
       <span class="contributor">
         ${label}
       </span>
       """
-  } 
+  }
 
-  implicit val codeShow: Show[Code] = Show.show { code => 
+  implicit val codeShow: Show[Code] = Show.show { code =>
     s"""
     |<div data-scalafiddle data-theme="dark">
     |  <pre><code class="snippet language-scala">
@@ -145,13 +144,15 @@ object StandaloneExamples {
     """.stripMargin.trim
   }
 
-  implicit val exampleShow: Show[CodeExample] = Show.show { example => 
+  implicit val exampleShow: Show[CodeExample] = Show.show { example =>
     s"""
     <div class="example">
       <h3 class="header">${example.title.show}</h3>
-      ${example.description.map { description =>
-        "<p>" + description.show +"</p>"
-      }.getOrElse("")}
+      ${example.description
+      .map { description =>
+        "<p>" + description.show + "</p>"
+      }
+      .getOrElse("")}
       ${example.tags.show}
       ${example.versions.show}
       ${example.snippet.show}

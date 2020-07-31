@@ -6,7 +6,7 @@ import cats.implicits._
 package object function {
   def getPage: Page = new Page {
     def canonicalPath: String = "scala/Function.html"
-    
+
     def title: String = "Function"
 
     def signature: FQSignature = FQSignature("scala.Function")
@@ -15,9 +15,7 @@ package object function {
     |The function companion object contains helpers for functions.
     """.stripMargin.trim.some
 
-    def tags: List[Tag] = List(
-      Tag("Standard Library")
-    )
+    def tags: List[Tag] = List(Tag("Standard Library"))
 
     def links: List[Link] = List(
       Link("Scala Docs for Function", "https://www.scala-lang.org/api/current/scala/Function$.html"),
@@ -27,7 +25,8 @@ package object function {
     def examples: CodeExamples = List(
       CodeExample(
         title = "Function.chain",
-        description = "Creates a function that pipes the result from one function to the next in order of the provided sequence.".some,
+        description =
+          "Creates a function that pipes the result from one function to the next in order of the provided sequence.".some,
         tags = Nil,
         snippet = Code("""
         |def increment(x: Int) = x + 1
@@ -38,8 +37,7 @@ package object function {
         |
         |val doubleDoubleDouble = Function.chain(Seq(double, double, double))
         |println(s"Double Thrice: ${doubleDoubleDouble(100)}")
-        """.stripMargin.trim
-        )
+        """.stripMargin.trim)
       ),
       CodeExample(
         title = "Function.const",
@@ -53,11 +51,10 @@ package object function {
         |lazy val sideEffect = { println("I'm a side-effect"); 999 }
         |println("Pre Calling Just 1")
         |println(s"Just One with Side Effect: ${justOne(sideEffect)}")
-        """.stripMargin.trim
-        )
+        """.stripMargin.trim)
       )
     )
 
-    def children: Pages = Nil 
+    def children: Pages = Nil
   }
 }

@@ -9,6 +9,6 @@ package object examples {
   type Contributors = List[Contributor]
   type Links = List[Link]
   type Tags = List[Tag]
-  type Pages= List[Page]
+  type Pages = List[Page]
   type VersionNumbers = List[VersionNumber]
 }

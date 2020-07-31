@@ -13,8 +13,8 @@ object SomeExamples {
 
     def signature: FQSignature = FQSignature("scala.Some[+A]")
 
-
-    def description: Option[String] = """
+    def description: Option[String] =
+      """
     |Represents the non-null case of an Option. Some indicates the precense of a value.
     """.stripMargin.trim.some
 
@@ -24,7 +24,7 @@ object SomeExamples {
 
     def children: Pages = Nil
 
-    def examples: CodeExamples =  List(
+    def examples: CodeExamples = List(
       CodeExample(
         title = "Constructing a Some value",
         description = none,
@@ -37,8 +37,7 @@ object SomeExamples {
           |println(resultA)
           |println(resultB)
           |println(resultC)
-          """.stripMargin.trim
-        )
+          """.stripMargin.trim)
       )
     )
   }

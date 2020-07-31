@@ -4,35 +4,30 @@ import cats._
 import cats.implicits._
 
 package object option {
-   def getPage: Page = new Page {
+  def getPage: Page = new Page {
     def canonicalPath = "scala/Option.html"
 
     val title = "Option"
 
-    def signature= FQSignature("scala.Option[+A]")
+    def signature = FQSignature("scala.Option[+A]")
 
     def description: Option[String] = """
     |Option type represents a value that may or may not be present. 
     |It is often used to safeguard against otherwise nullable operations.
     """.stripMargin.trim.some
 
-    def tags: List[Tag] = List(
-      Tag("Standard Library")
-    )
+    def tags: List[Tag] = List(Tag("Standard Library"))
 
     def links: List[Link] = List(
       Link("Scala Docs for Option", "https://www.scala-lang.org/api/current/scala/Option.html"),
       Link("Source Code for Option", "https://github.com/scala/scala/blob/2.13.x/src/library/scala/Option.scala")
     )
 
-    def children: Pages = List(
-      SomeExamples.getPage,
-      NoneExamples.getPage
-    )
+    def children: Pages = List(SomeExamples.getPage, NoneExamples.getPage)
 
     def examples: CodeExamples = List(
       CodeExample(
-        title = "Representing Nullable Operation", 
+        title = "Representing Nullable Operation",
         description = none,
         tags = Nil,
         snippet = Code("""
@@ -52,11 +47,9 @@ package object option {
           |  .map(_ => nullableOperation())
           |  .map(nullable => Option(nullable)) // Create an instance of Option: Some or None
           |  .foreach(println)
-          """.stripMargin.trim
-        )
+          """.stripMargin.trim)
       )
     )
   }
- 
-}
 
+}

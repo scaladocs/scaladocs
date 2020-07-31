@@ -9,7 +9,7 @@ package object either {
 
     val title = "Either"
 
-    def signature= FQSignature("scala.util.Either[+A, +B]")
+    def signature = FQSignature("scala.util.Either[+A, +B]")
 
     def description: Option[String] = """
     | Represents one of two possible values. Sometimes referred to as a
@@ -17,23 +17,18 @@ package object either {
     | or `scala.util.Right`.
     """.stripMargin.trim.some
 
-    def tags: List[Tag] = List(
-      Tag("Standard Library")
-    )
+    def tags: List[Tag] = List(Tag("Standard Library"))
 
     def links: List[Link] = List(
       Link("Scala Docs for Either", "https://www.scala-lang.org/api/current/scala/util/Either.html"),
       Link("Source Code for Either", "https://github.com/scala/scala/blob/2.13.x/src/library/scala/util/Either.scala")
     )
 
-    def children: Pages = List(
-      LeftExamples.getPage,
-      RightExamples.getPage
-    )
+    def children: Pages = List(LeftExamples.getPage, RightExamples.getPage)
 
     def examples: CodeExamples = List(
       CodeExample(
-        title = "Basic Usage: Representing Success or Failure", 
+        title = "Basic Usage: Representing Success or Failure",
         description = none,
         tags = Nil,
         snippet = Code("""
@@ -54,8 +49,7 @@ package object either {
           |}
           |
           |(1 to 5).map(_ => DiceGame.roll).foreach(println)
-          """.stripMargin.trim
-        )
+          """.stripMargin.trim)
       )
     )
   }

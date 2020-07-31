@@ -7,5 +7,5 @@ case class CodeExample(
   contributors: Contributors = List.empty[Contributor],
   links: Links = List.empty[Link],
   tags: Tags = List.empty[Tag],
-  snippet: Code 
+  snippet: Code
 )

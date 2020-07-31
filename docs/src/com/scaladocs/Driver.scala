@@ -1,4 +1,4 @@
-package com.scaladocs 
+package com.scaladocs
 
 import cats._
 import cats.implicits._
@@ -12,11 +12,7 @@ object Driver extends App {
   val root = Paths.get("").toAbsolutePath
 
   // Add examples to this list to generate pages.
-  val exports = List(
-    examples.either.getPage,
-    examples.option.getPage,
-    examples.function.getPage
-  )
+  val exports = List(examples.either.getPage, examples.option.getPage, examples.function.getPage)
 
   // Copy files required by the templates:
   locally[Unit] {
@@ -25,11 +21,11 @@ object Driver extends App {
 
     Files
       .walk(htmlRescourcesPath)
-      .filter({ f => 
+      .filter({ f =>
         val fileName = f.getFileName.toString
 
-        val isIndex  = fileName.endsWith("index.html")
-        val notHTML = !fileName.endsWith(".html") 
+        val isIndex = fileName.endsWith("index.html")
+        val notHTML = !fileName.endsWith(".html")
         val notSearchIndex = !fileName.endsWith("search-index.js")
         val notRootDirectory = f.compareTo(htmlRescourcesPath) != 0
 
@@ -41,7 +37,7 @@ object Driver extends App {
         io.copy(source, destination)
       })
   }
-  
+
   // Export the index of examples:
   locally[Unit] {
     import html.JsonIndex._
@@ -51,15 +47,15 @@ object Driver extends App {
   }
 
   // Export the standalone examples:
-  locally[Unit] { 
+  locally[Unit] {
     import html.StandaloneExamples._
     Logger.info(s"Starting export for all pages. Exporting ${exports.size} Pages")
     val outputPathPrefix = root.resolve("build/examples/")
-    exports.foreach { page => 
+    exports.foreach { page =>
       val pageDestination = outputPathPrefix.resolve(page.canonicalPath)
       io.putContents(pageDestination, page.show)
 
-      page.children.foreach { child => 
+      page.children.foreach { child =>
         val childPageDestination = outputPathPrefix.resolve(child.canonicalPath)
         io.putContents(childPageDestination, child.show)
       }

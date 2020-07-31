@@ -13,7 +13,6 @@ object LeftExamples {
 
     def signature: FQSignature = FQSignature("scala.util.Left[+A]")
 
-
     def description: Option[String] = """
     | Represents the Left value of the Either[+A, +B] type.
     | Typically Left is used to represent an error type, but it can represent 
@@ -26,7 +25,7 @@ object LeftExamples {
 
     def children: Pages = Nil
 
-    def examples: CodeExamples =  List(
+    def examples: CodeExamples = List(
       CodeExample(
         title = "Constructing a Left value",
         description = none,
@@ -41,8 +40,7 @@ object LeftExamples {
           |println(resultA)
           |println(resultB)
           |println(resultC)
-          """.stripMargin.trim
-        )
+          """.stripMargin.trim)
       )
     )
   }

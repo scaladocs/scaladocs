@@ -12,7 +12,8 @@ import java.io.ByteArrayInputStream
 
 package object io {
   def getContents(resourceRelativePath: String): String = {
-    Source.fromResource(resourceRelativePath)
+    Source
+      .fromResource(resourceRelativePath)
       .getLines
       .mkString("\n")
   }
@@ -53,4 +54,3 @@ package object io {
     }
   }
 }
-

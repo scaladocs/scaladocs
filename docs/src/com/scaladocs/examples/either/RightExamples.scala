@@ -13,7 +13,6 @@ object RightExamples {
 
     def signature: FQSignature = FQSignature("scala.util.Right[+B]")
 
-
     def description: Option[String] = """
     | Represents the `Right` value of the Either[+A, +B] type.
     | Typically Right is used to represent a success result, but it can represent 
@@ -26,7 +25,7 @@ object RightExamples {
 
     def children: Pages = Nil
 
-    def examples: CodeExamples =  List(
+    def examples: CodeExamples = List(
       CodeExample(
         title = "Constructing a Right value",
         description = none,
@@ -41,8 +40,7 @@ object RightExamples {
           |println(resultA)
           |println(resultB)
           |println(resultC)
-          """.stripMargin.trim
-        )
+          """.stripMargin.trim)
       )
     )
   }

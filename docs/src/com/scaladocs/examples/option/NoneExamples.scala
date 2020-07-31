@@ -13,7 +13,6 @@ object NoneExamples {
 
     def signature: FQSignature = FQSignature("scala.None")
 
-
     def description: Option[String] = """
     |Represents the null-able case of an Option.
     |None is used to represent the abscence of a value.
@@ -25,7 +24,7 @@ object NoneExamples {
 
     def children: Pages = Nil
 
-    def examples: CodeExamples =  List(
+    def examples: CodeExamples = List(
       CodeExample(
         title = "Constructing a None value",
         description = none,
@@ -38,8 +37,7 @@ object NoneExamples {
           |println(resultA)
           |println(resultB)
           |println(resultC)
-          """.stripMargin.trim
-        )
+          """.stripMargin.trim)
       )
     )
   }
