@@ -418,7 +418,17 @@ package object list {
           title = "map",
           description = "Create a list of elements transformed by the given function.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val list = List(65, 66, 67) // ASCII values for ABC
+            |
+            |val resultA = list.map(_.toChar)
+            |println(s"Result A: ${resultA}")
+            |
+            |val resultB = list.map { x => (x + 32).toChar } // Lower Case
+            |println(s"Result B: ${resultB}")
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "flatten",
