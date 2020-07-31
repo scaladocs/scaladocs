@@ -404,7 +404,15 @@ package object list {
           title = "flatMap",
           description = "Create a flattened list of elements transformed by the given function.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |def toPostiveNegative(value: Int) = List(-value, value)
+            |
+            |val list = List(1, 2, 3)
+            |val positiveNegativeList = list.flatMap(toPostiveNegative)
+            |println(s"Result: ${positiveNegativeList}")
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "map",
