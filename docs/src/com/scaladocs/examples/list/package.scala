@@ -224,7 +224,23 @@ package object list {
           title = "collect",
           description = "Creates a list of elements transformed by the provided partial function.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val importantNumbers = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) 
+            |val superImportantNumbers = importantNumbers.collect {
+            |  // This partial function behaves as map and filter operations in one step.
+            |  case num if (num % 2 == 0) => s"Super #${num}"
+            |}
+            |println(superImportantNumbers + "\n")
+            |
+            |val allNumbers = importantNumbers.collect {
+            |  // A partial function defined for all inputs, is equivalent to
+            |  // a normal list.map operation.
+            |  case num => s"Just #${num}"
+            |}
+            |println(allNumbers)
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "collectFirst",
