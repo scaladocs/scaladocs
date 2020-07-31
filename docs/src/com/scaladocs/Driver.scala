@@ -12,7 +12,7 @@ object Driver extends App {
   val root = Paths.get("").toAbsolutePath
 
   // Add examples to this list to generate pages.
-  val exports = List(examples.either.getPage, examples.option.getPage, examples.function.getPage)
+  val exports = List(examples.either.getPage, examples.function.getPage, examples.list.getPage, examples.option.getPage)
 
   // Copy files required by the templates:
   locally[Unit] {
