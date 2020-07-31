@@ -79,7 +79,15 @@ package object list {
           title = "List.range",
           description = "Create a list with the given range.".some,
           tags = List(Tag("Comanion Object")),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val rangeA: List[Int] = List.range(1, 10)
+            |println(s"One to Ten: ${rangeA}")
+            |
+            |val rangeByTwo: List[Long] = List.range(1, 10, 2)
+            |println(s"One to Ten by Two: ${rangeByTwo}")
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "List.tabulate",
