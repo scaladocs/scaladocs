@@ -283,7 +283,25 @@ package object list {
           title = "corresponds",
           description = "Tets whether every element in the list corresponds to an element in another list.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val listA = List(1, 2, 3)
+            |val listB = List(1, 2, 3)
+            |val listC = List(11, 22, 33)
+            |
+            |def correspondByValue[A, B](a: A, b: B) = a == b
+            |
+            |val aToB = listA.corresponds(listB)(correspondByValue)
+            |println(s"listA and listB: ${aToB}")
+            |
+            |val aToC = listA.corresponds(listC)(correspondByValue)
+            |println(s"listA and listC: ${aToC}")
+            |
+            |def correspondByTranslation(a: Int, b: Int) = a == (b / 11)
+            |val bToC = listb.corresponds(listC)(correspondByTranslation)
+            |println(s"listB and listC: ${bToC}")
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "distinct, distinctBy",
