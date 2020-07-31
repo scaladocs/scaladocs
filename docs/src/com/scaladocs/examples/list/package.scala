@@ -522,7 +522,21 @@ package object list {
           title = "forall",
           description = "Test if all elements in the list hold for the given predicate.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val list = List(1, 2, 3, 4, 5)
+            |
+            |val allSmallNumbers = list.forall(_ <= 5)
+            |println(s"All Small Numbers: ${allSmallNumbers}")
+            |
+            |val allTinyNumbers = list.forall(_ <= 3)
+            |println(s"All Tiny Numbers: ${allTinyNumbers}")
+            |
+            |// Empty list returns true `forall` for all predicates.
+            |val emptyList = List.empty[Int].forall(_ <= 5)
+            |println(s"All Small Numbers in Empty List: ${emptyList}")
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "partition",
