@@ -247,7 +247,22 @@ package object list {
           description =
             "Return an Option of the first transformed element defined by the partial function, if it exists. ".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val importantNumbers = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) 
+            |
+            |val firstSuperNumber = importantNumbers.collectFirst {
+            |  // This partial function behaves as map and filter operations in one step.
+            |  case num if (num % 2 == 0) => s"Super #${num}"
+            |}
+            |println(s"Super Number Found: ${firstSuperNumber}")
+            |
+            |val noSuperNumber = importantNumbers.collectFirst {
+            |  case num if num > 10 => s"Super #${num}"
+            |}
+            |println(s"Super Number Found: ${noSuperNumber}")
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "contains",
