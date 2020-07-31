@@ -511,7 +511,12 @@ package object list {
           description =
             "Apply the given function to each element in the list. This is typically used for side-effects.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val list = List(1, 2, 3, 4, 5)
+            |list.foreach(value => println(s"Value is: ${value}"))
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "forall",
