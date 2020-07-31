@@ -133,7 +133,15 @@ package object list {
           title = "List.iterate",
           description = "Create a list of values resulting by repeated invocations of the function on a value.".some,
           tags = List(Tag("Comanion Object")),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |def doublePrevious(value: Int) = value * 2
+            |val initialValue = 1
+            |val numberOfIterations = 10
+            |val tenDoubledNumbers: List[Int] = List.iterate(initialValue, numberOfIterations)(doublePrevious)
+            |println(tenDoubledNumbers)
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "concat, ++",
