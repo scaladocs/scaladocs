@@ -304,10 +304,29 @@ package object list {
           )
         ),
         CodeExample(
-          title = "distinct, distinctBy",
+          title = "distinct",
           description = "Retuns a list with just the distinct elements contained by the list.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val numbers = List(1, 2, 3, 1, 2, 3, 1, 2, 3)
+            |val distinct = numbers.distinct
+            |println(distinct)
+            """.stripMargin.trim
+          )
+        ),
+        CodeExample(
+          title = "distinctBy",
+          description = "Retuns a list with just the distinct elements contained by the list.".some,
+          tags = List(Tag("2.13.x")),
+          snippet = Code(
+            """
+            |val numbers = List(1, 2, 3, 4, 5, 6, 7, 8, 9)
+            |// Returns distinct values defined by the co-domain of the provided function.
+            |val distinctBy = numbers.distinctBy { value => value % 3 }
+            |println(distinctBy)
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "exists",
