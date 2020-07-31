@@ -212,7 +212,13 @@ package object list {
           title = "append, :+",
           description = "Adds an element to the end of the list.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val list = List("a", "b")
+            |val updatedList = list :+ "c"
+            |println(updatedList)
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "collect",
