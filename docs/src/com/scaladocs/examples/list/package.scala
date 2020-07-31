@@ -93,7 +93,24 @@ package object list {
           title = "List.tabulate",
           description = "Create a list containing the values produced by a given function.".some,
           tags = List(Tag("Comanion Object")),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |println("\nTabulate the position of each element:")
+            |val numberOfElements = 4 
+            |def providerForIndex(index: Int): Int = index
+            |val numberLine: List[Int] = List.tabulate(numberOfElements)(providerForIndex)
+            |println(numberLine)
+            |
+            |println("\nTabulate the position of each element of a two dimension grid:")
+            |val numberOfRows = 4
+            |val numberOfCols = 4
+            |def gridProvider(x: Int, y: Int): Int = y + (x * numberOfElements)
+            |val grid: List[List[Int]] = List.tabulate(numberOfRows, numberOfCols)(gridProvider)
+            |println(grid)
+            |
+            |// List.tabulate supports up to 5 paramaters, or 5 nested list dimensions.
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "List.unfold",
