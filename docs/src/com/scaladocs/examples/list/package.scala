@@ -361,10 +361,44 @@ package object list {
           )
         ),
         CodeExample(
-          title = "find, findLast",
+          title = "find",
           description = "Return an Option of the first element matching the predicate.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |case class Data(value: Int, position: Int)
+            |
+            |val list = List(
+            |  Data(1,1),
+            |  Data(2,2),
+            |  Data(1,3),
+            |  Data(2,4)
+            |)
+            |
+            |val result = list.find(_.value == 2)
+            |println(s"Result of Find: ${result}")
+            """.stripMargin.trim
+          )
+        ),
+        CodeExample(
+          title = "findLast",
+          description = "Return an Option of the last element matching the predicate.".some,
+          tags = List(Tag("2.13.x")),
+          snippet = Code(
+            """
+            |case class Data(value: Int, position: Int)
+            |
+            |val list = List(
+            |  Data(1,1),
+            |  Data(2,2),
+            |  Data(1,3),
+            |  Data(2,4)
+            |)
+            |
+            |val result = list.findLast(_.value == 2)
+            |println(s"Result of Find Last: ${result}")
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "flatMap",
