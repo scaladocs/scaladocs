@@ -115,8 +115,19 @@ package object list {
         CodeExample(
           title = "List.unfold",
           description = "Create a list of values relative to some state.".some,
-          tags = List(Tag("Comanion Object")),
-          snippet = Code("""""".stripMargin.trim)
+          tags = List(Tag("Comanion Object"), Tag("2.13.x")),
+          snippet = Code(
+            """
+            |// List.unfold is only available starting with Scala 2.13.x
+            |val initial: Int = 65 // ASCII A
+            |def getNext(state: Int) = {
+            |  if (state > (initial + 25)) None
+            |  else Some((state.toChar, state + 1))
+            |}
+            |val alphabet: List[Char] = List.unfold(initial)(getNext)
+            |println(alphabet)
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "List.iterate",
