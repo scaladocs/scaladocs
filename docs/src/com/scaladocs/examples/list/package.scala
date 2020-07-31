@@ -446,7 +446,15 @@ package object list {
           title = "fold",
           description = "Accumulate the result of applying a binary operation on all elements of the list.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |// fold accumulates values into the same type as is contained by the list. 
+            |// See foldLeft to accumulate into a different type.
+            |val list = List(5, 4, 3, 2, 1)
+            |val result = list.fold(1)(_ * _)
+            |println(result)
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "foldLeft",
