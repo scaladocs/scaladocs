@@ -571,15 +571,28 @@ package object list {
           title = "zip",
           description = "Create a list of tuples, where corresponding elements of each list are matched up.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val numbers: List[Int] = List(10, 20, 30, 40, 50, 60, 70, 80)
+            |val words: List[String] = List("apple", "bee", "car", "dog", "elk")
+            |// Note that zipped matches the length of the short list.
+            |val zipped: List[(Int, String)] = numbers.zip(words)
+            |println(s"Zipped List: ${zipped}")
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "zipWithIndex",
           description = "Creates a list of tuples, where each element is matched with its index.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val words: List[String] = List("apple", "bee", "car", "dog", "elk")
+            |val zipped: List[(String, Int)] = words.zipWithIndex
+            |println(s"Zipped List: ${zipped}")
+            """.stripMargin.trim
+          )
         )
       )
   }
-
 }
