@@ -145,7 +145,7 @@ package object list {
         ),
         CodeExample(
           title = "concat, ++",
-          description = "Concatenate two lists into a new list.".some,
+          description = "All all elements of another list to the end of a list.".some,
           tags = List(),
           snippet = Code(
             """
@@ -160,9 +160,21 @@ package object list {
         ),
         CodeExample(
           title = "prependAll, ++:, :::",
-          description = "Adds all elements of the list to another list".some,
+          description = "Add all elements of a collection to the list.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |val collectionA = Vector(1, 2, 3)
+            |val listB = List(50, 60, 70)
+            |val resultA: Vector[Int] = listB  ++: collectionA // Prepend values of list into collection.
+            |val resultB: List[Int] = collectionA ++: listB    // Prepend values of collection into list.
+            |
+            |println(s"collectionA: ${collectionA}") // Original vector unmodified
+            |println(s"listB: ${listB}") // Original list unmodified
+            |println(s"resultA: ${resultA}") // Vector
+            |println(s"resultB: ${resultB}") // List
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "pepend, +:, ::",
