@@ -543,7 +543,15 @@ package object list {
           description =
             "Create two list, one list for all elements satisfying the given predicate, and a second list for items not satisfying the given predicate.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |def lessThanTen(value: Int) = value < 10
+            |val list = List(1, 2, 3, 4, 5, 10, 20, 30, 40, 50, 6, 7, 8, 9)
+            |val (matching, nonMatching) = list.partition(lessThanTen)
+            |println(s"Matching Partition: ${matching}")
+            |println(s"Non-Matching Partition: ${nonMatching}")
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "tapEach",
