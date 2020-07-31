@@ -332,7 +332,18 @@ package object list {
           title = "exists",
           description = "Tests if at least one element in the list satisfies the given predicate.".some,
           tags = List(),
-          snippet = Code("""""".stripMargin.trim)
+          snippet = Code(
+            """
+            |def containsMagic(candidate: Int) = candidate % 42 == 0
+            |val listA = List(1, 2, 4, 8, 16, 32, 64)
+            |val resultA = listA.exists(containsMagic)
+            |println(s"Contains Some Magic: ${resultA}")
+            |
+            |val listB = List(1, 2, 4, 8, 16, 32, 84)
+            |val resultB = listB.exists(containsMagic)
+            |println(s"Contains Some Magic: ${resultB}")
+            """.stripMargin.trim
+          )
         ),
         CodeExample(
           title = "filter",
