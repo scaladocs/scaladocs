@@ -63,11 +63,21 @@ package object patternmatching {
           """.stripMargin.trim)
         ),
         CodeExample(
-          title = "Pattern Guards",
+          title = "Pattern Matching with Guards",
           description = "Using guards to specify additional criteria for a pattern.".some,
           tags = List(),
           snippet = Code("""
-          | 
+          |import scala.util.Random
+          |def onlyEven(value: Int) = value % 2 == 0
+          |
+          |Random.nextInt() match {
+          |  // Bind the value of Random.nextInt() to `x` then use it in the guard.
+          |  case x if onlyEven(x) => println(s"Found an even number: ${x}")
+          |  case x if !onlyEven(x) => println(s"Found an odd number: ${x}")
+          |
+          |  // Case without a guard...also serves as catch all..
+          |  case x => println("All numbers are even or odd...so this never gets executed.")
+          |}
           """.stripMargin.trim)
         )
       )
