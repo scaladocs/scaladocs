@@ -29,26 +29,28 @@ function renderChildrenElements(children, index, total) {
 function renderSingleElement(element, index, total, isChild) {
   const className = isChild ? "child" : '';
 
-  // Build Styled Bookmark Title
-  var linkText = document.createElement("span");
-  linkText.innerText = element.title;
-  linkText.style.transform = "scale(" + (1 - 0.5 * (index + 1) / total) + ")";
-
-  // Build Styled Link URL
-  var packageUrl = [element.package, element.title].filter(identity).join('.');
-  var linkUrl = document.createElement("span");
-  linkUrl.innerText = " (" + packageUrl + ")";
-  linkUrl.style.transform = "scale(" + (1 - 0.5 * (index + 2) / total) + ")";
-  linkUrl.style.opacity = 0.7;
-
   // Build Clickable Styled Link Element with Title and URL
   var link = document.createElement("a");
   link.href = element.url;
   //link.target = "_blank";
   link.className = className;
   link.style.opacity = 1 - 0.5 * (index + 1) / total;
+
+  // Build Styled Bookmark Title
+  var linkText = document.createElement("span");
+  linkText.innerText = element.title;
+  linkText.style.transform = "scale(" + (1 - 0.5 * (index + 1) / total) + ")";
   link.appendChild(linkText);
-  link.appendChild(linkUrl);
+
+  // Build Styled Link URL
+  var packageUrl = [element.package, element.title].filter(identity).join('.');
+  if (packageUrl !== element.title) {
+    var linkUrl = document.createElement("span");
+    linkUrl.innerText = " (" + packageUrl + ")";
+    linkUrl.style.transform = "scale(" + (1 - 0.5 * (index + 2) / total) + ")";
+    linkUrl.style.opacity = 0.7;
+    link.appendChild(linkUrl);
+  }
 
   return link;
 }
