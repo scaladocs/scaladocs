@@ -51,7 +51,26 @@ package object patternmatching {
           description = "Using pattern matching to match on structure.".some,
           tags = List(),
           snippet = Code("""
+          |val list: List[Int] = 1 :: 2 :: 3 :: 4 :: 5 :: Nil
           |
+          |def printListByTwo(input: List[Int]): Unit = input match {
+          |  // Use structural matching to determine that it's the end of the list:
+          |  case Nil => println("End")
+          |
+          |  // Use structural matching to extract the last element:
+          |  case head :: Nil => 
+          |    println(head)
+          |    println("End")
+          |
+          |  // Use structural matchin to bind the first two elements to `head` and `next`:
+          |  case head :: next :: rest => 
+          |    println(head)
+          |    println(next)
+          |    println("----")
+          |    printListByTwo(rest)
+          |}
+          |
+          |printListByTwo(list)
           """.stripMargin.trim)
         ),
         CodeExample(
