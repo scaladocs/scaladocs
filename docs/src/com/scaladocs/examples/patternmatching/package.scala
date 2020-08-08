@@ -59,6 +59,36 @@ package object patternmatching {
           description = "Using wild cards to match on any value.".some,
           tags = List(),
           snippet = Code("""
+          |val pizzaA = Some("Veggie Lover's")
+          |val pizzaB = Some("Meat Lover's")
+          |
+          |def describeOrder(first: Option[String], second: Option[String]) = {
+          |  println(s"\nMatching: ${first} ${second}")
+          |  (first, second) match {
+          |    case (Some("Meat Lover's"), Some("Meat Lover's")) => println("Double the Meat Lover's")
+          |    case (Some("Veggie Lover's"), Some("Veggie Lover's")) => println("Double the Veggie Lover's")
+          |
+          |    // Using _ as a wild card for any value within the second Some:
+          |    case (Some("Veggie Lover's"), Some(_)) => println("2 Pizzas with at least one Veggie Lover's")
+          |    case (Some("Meat Lover's"), Some(_)) => println("2 Pizzas with at least one Meat Lover's")
+          |
+          |    // Using _ as a wild card for any value in the second position of the tuple:
+          |    case (Some("Veggie Lover's"), _) => println("One Veggie Lover's")
+          |    case (Some("Meat Lover's"), _) => println("One Meat Lover's")
+          |
+          |    // Catch all for any combination we did not define, ie: (None, None)
+          |    case (fst, snd) => println(s"Catch-all....(${fst},${snd})")
+          |  }
+          |}
+          |
+          |describeOrder(pizzaA, pizzaB)
+          |describeOrder(pizzaA, None)
+          |describeOrder(pizzaA, Some("Chorizo"))
+          |describeOrder(pizzaB, pizzaA)
+          |describeOrder(pizzaB, Some("Anchovie"))
+          |describeOrder(pizzaB, None)
+          |describeOrder(Some("Chorizo"), Some("Anchovie"))
+          |describeOrder(None, None)
           |
           """.stripMargin.trim)
         ),
