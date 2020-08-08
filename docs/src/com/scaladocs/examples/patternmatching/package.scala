@@ -27,15 +27,32 @@ package object patternmatching {
           description = "Using pattern matching to match on an exact value.".some,
           tags = List(),
           snippet = Code("""
+          |import scala.util.Random
+          | 
+          |// Match Numbers to a Word
+          |Math.abs(Random.nextInt() % 10) match {
+          |  case 0 => println("Cero")
+          |  case 1 => println("Uno")
+          |  case 2 => println("Dos")
+          |  case 3 => println("Tres")
+          |  case 4 => println("Quatro")
+          |  case 5 => println("Cinco")
+          |  case 6 => println("Seis")
+          |  case 7 => println("Siete")
+          |  case 8 => println("Ocho")
+          |  case 9 => println("Nueve")
+          |}
           |
-          """.stripMargin.trim)
-        ),
-        CodeExample(
-          title = "Matching on Value",
-          description = "Using pattern matching to match on an exact value.".some,
-          tags = List(),
-          snippet = Code("""
-          |
+          |// Match strings to values:
+          |val choice = "pizza"
+          |choice match {
+          |  case "not-pizza" => println("Chose Not Pizza!")
+          |  case "salad" => println("Chose Salad!")
+          |  case "pizza" => println("Chose Pizza!")
+          |  case "ice cream" => println("Chose Ice Cream!")
+          |  // Catch all case for values not defined:
+          |  case _ => println("Chose Something Else")
+          |}
           """.stripMargin.trim)
         ),
         CodeExample(
