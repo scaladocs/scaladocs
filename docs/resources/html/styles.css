@@ -1,8 +1,14 @@
 @charset "UTF-8";
 
+html, body {
+  height: 100%;
+}
+
 body {
   color: white;
   background-color: #263238;
+  display: flex;
+  flex-direction: column;
   font-size: 16px;
   font-family: "Roboto Condensed", sans-serif;
 }
@@ -22,8 +28,11 @@ h3 + p, h2 + p {
 }
 
 .container {
+  height: calc("100vh - 5rem");
   margin: 0 auto;
-  width: 960px;
+  max-width: 960px;
+  width: 100%;
+  flex-grow: 1;
 }
 
 .container > .title {
@@ -144,8 +153,10 @@ h3 + p, h2 + p {
 
 .footer {
   margin: 0 auto;
+  max-width: 960px;
+  padding-bottom: 1rem;
   text-align: right;
-  width: 960px;
+  width: 100%;
 }
 
 .footer .note,
