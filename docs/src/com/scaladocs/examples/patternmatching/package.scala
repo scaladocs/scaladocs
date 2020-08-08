@@ -60,7 +60,23 @@ package object patternmatching {
           description = "Using pattern matching to match on a type.".some,
           tags = List(),
           snippet = Code("""
+          |trait Computer
+          |case class Android(name: String) extends Computer
+          |case class Terminator(name: String) extends Computer
+          |case class Droid(name: String) extends Computer
+          |case class Replicant(name: String) extends Computer
+          |case class Host(name: String) extends Computer
           |
+          |val character: Computer = Host("Bernard")
+          |character match {
+          |  case x: Replicant => println("Is this testing if I'm a replicant...")
+          |  case x: Android => println("Dreaming of electric sheep...")
+          |  case x: Terminator => println("I'll be back...")
+          |  case x: Droid => println("beep...bop...beep...")
+          |  case x: Host => println("...violent ends...")
+          |  // Catch All Case:
+          |  case x => println(s"Unknown Computer Type: ${x}")
+          |}
           """.stripMargin.trim)
         ),
         CodeExample(
