@@ -1,12 +1,122 @@
+<html>
+<head>
+  <style>
+   html, body {
+     font-family: sans-serif;
+     font-size: 14px;
+     line-height: 1.62em;
+     color: #565656;
+   }
+
+   .logo {
+     margin-top: 1rem;
+   }
+
+   .logo-text {
+     text-transform: uppercase;
+     font-weight: bold;
+     color: #777;
+   }
+
+   .logo-text-second {
+     color:#999;
+   }
+
+   .body-container {
+     display: flex;
+     flex-direction: column;
+     align-items: left;
+     max-width: 1200px;
+     padding-left: 2rem;
+   }
+
+   .main-content {
+     flex-grow: 1;
+   }
+
+   .left-margin {
+     min-width: 150px;
+   }
+
+   .columns-2, .columns-3 {
+     display: flex;
+   }
+
+   .columns-3 ol {
+     flex-basis: 33%;
+   }
+
+   .columns-2 ol {
+     flex-basis: 50%;
+   }
+
+   .footer {
+     margin-top: 2rem;
+     color: #888;
+     text-align: center;
+   }
+
+   ol {
+     list-style: none;
+     counter-reset: li;
+     padding-left: 0;
+   }
+
+   li::before {
+     content: counter(li);
+     color: #DDD;
+     display: inline-block;
+     width: 1rem;
+     margin-right: 0.5rem;
+     text-align: right;
+     direction: rtl;
+   }
+
+   li {
+     counter-increment: li
+   }
+
+   a {
+     color: #777;
+     font-family: monospace;
+     font-weight: 100;
+   }
+
+   a:hover {
+     color: #AA0000;
+   }
+
+   h2 {
+    font-weight: normal;
+     margin-bottom: 0;
+   }
+
+   .cta {
+     text-align: center;
+     font-size: 1.3rem;
+     padding: 1rem;
+   }
+   .button {
+     display: inline-block;
+     background: #72dec2;
+     padding: 0.5rem 1rem;
+     color: #242424;
+     border-radius: .5rem;
+     border: solid 1px #fff;
+     box-shadow: 0 0 5px #999;
+   }
+  </style>
+</head>
+<body>
 <div class="body-container">
   <div class="left-margin">
     <svg class="logo" xmlns="http://www.w3.org/2000/svg" baseProfile="full" version="1.1" style="fill: none;" width="100px" height="100px" viewBox="180 120 135 180">
-	    <path style="stroke-width: 15px; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(106, 106, 106); fill: none;" d="">
-	    </path>
-	    <path style="stroke-width: 1px; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(68, 0, 0); fill: rgb(68, 0, 0);" d="M180,225 Q240,225 315,255 Q315,225 315,195 Q270,195 180,165 Q180,195 180,225 ">
-	    </path>
-	    <path style="stroke-width: 1px; stroke-linecap: round; stroke-linejoin: miter; stroke: rgb(170, 0, 0); fill: rgb(170, 0, 0);" d="M180,300 Q180,270 180,240 Q240,225 315,195 Q315,225 315,255 Q195,285 180,300 M180,225 Q180,195 180,165 Q300,135 315,120 Q315,150 315,180 Q240,195 180,225 ">
-	    </path>
+      <path style="stroke-width: 15px; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(106, 106, 106); fill: none;" d="">
+      </path>
+      <path style="stroke-width: 1px; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(68, 0, 0); fill: rgb(68, 0, 0);" d="M180,225 Q240,225 315,255 Q315,225 315,195 Q270,195 180,165 Q180,195 180,225 ">
+      </path>
+      <path style="stroke-width: 1px; stroke-linecap: round; stroke-linejoin: miter; stroke: rgb(170, 0, 0); fill: rgb(170, 0, 0);" d="M180,300 Q180,270 180,240 Q240,225 315,195 Q315,225 315,255 Q195,285 180,300 M180,225 Q180,195 180,165 Q300,135 315,120 Q315,150 315,180 Q240,195 180,225 ">
+      </path>
     </svg>
   </div>
   <div class="main-content">
@@ -79,3 +189,5 @@
     </footer>
   </div>
 </div>
+</body>
+</html>
